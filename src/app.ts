@@ -1,13 +1,13 @@
 import express from "express";
 import cors from "cors";
-//import mongoose from "mongoose";
+import morgan from "morgan";
 
 import routes from "./routes";
 
 class App {
   public express: express.Application;
   public dirRoutes = "routes";
-  
+
   public constructor() {
     this.express = express();
 
@@ -19,6 +19,7 @@ class App {
   private middlewares(): void {
     this.express.use(express.json());
     this.express.use(cors());
+    this.express.use(morgan("dev"));
   }
 
   private database(): void {
