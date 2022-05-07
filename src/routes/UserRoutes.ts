@@ -1,6 +1,9 @@
 import { Request, Response, Router } from "express";
+import { CreateUserController } from "../modules/User/createUser";
+import { DeleteUserController } from "../modules/User/deleteUser";
+import { ListUserController } from "../modules/User/listUser";
 class Controller {
-  public path = "/test";
+  public path = "/user";
   public router = Router();
 
   constructor() {
@@ -9,9 +12,20 @@ class Controller {
 
   public intializeRoutes() {
     this.router.get(this.path, this.get);
+    this.router.post(this.path, this.post);
+    this.router.delete(`${this.path}/:id`, this.delete);
   }
-  get = (req: Request, res: Response) => {
-    res.send("ta funcionando");
+  get = async (req: Request, res: Response) => {
+    await ListUserController.handle(req, res);
+    return;
+  };
+  post = async (req: Request, res: Response) => {
+    await CreateUserController.handle(req, res);
+    return;
+  };
+  delete = async (req: Request, res: Response) => {
+    await DeleteUserController.handle(req, res);
+    return;
   };
 }
 
