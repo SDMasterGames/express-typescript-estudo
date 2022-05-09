@@ -5,3 +5,5 @@ para estudo.
 - Express
 - Prisma
     - PostgreSQL
+- Jest
+    - SWC/jest
