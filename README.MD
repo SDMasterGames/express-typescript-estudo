@@ -1,4 +1,4 @@
-## Exemplo de Api usando Typescript
+## Exemplo de Api
 para estudo.
 
 - Typescript

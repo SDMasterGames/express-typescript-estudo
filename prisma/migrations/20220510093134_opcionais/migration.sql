@@ -1,0 +1,4 @@
+-- AlterTable
+ALTER TABLE "User" ALTER COLUMN "avatar_url" DROP NOT NULL,
+ALTER COLUMN "created_at" DROP NOT NULL,
+ALTER COLUMN "updated_at" DROP NOT NULL;
