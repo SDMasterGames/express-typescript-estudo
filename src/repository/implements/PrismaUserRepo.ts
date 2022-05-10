@@ -33,6 +33,7 @@ export class PrismaUserRepo implements IUserRepo {
     return await prisma.user.findMany();
   }
   async findByIdAndUpdate(id: string, data: Partial<User>): Promise<User> {
+    data.updated_at = new Date();
     const user = await prisma.user.update({
       where: {
         id,
