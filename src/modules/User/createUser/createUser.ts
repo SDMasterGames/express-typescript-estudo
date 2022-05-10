@@ -12,7 +12,7 @@ export class createUser {
     const user = await this.IUserRepo.create({
       email,
       name,
-      avatar_url,
+      avatar_url: avatar_url || "",
     });
     return user;
   }
