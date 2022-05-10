@@ -6,13 +6,11 @@ import routes from "./routes";
 
 class App {
   public express: express.Application;
-  public dirRoutes = "routes";
 
   public constructor() {
     this.express = express();
 
     this.middlewares();
-    this.database();
     this.routes();
   }
 
@@ -22,13 +20,8 @@ class App {
     this.express.use(morgan("dev"));
   }
 
-  private database(): void {
-    //caso tenha um db
-    //mongoose.connect(`mongodb://${process.env.DB_HOST}:27017/tsexample`, { useNewUrlParser: true })
-  }
-
   private routes(): void {
-    this.express.use(routes(this.dirRoutes));
+    this.express.use(routes());
   }
 }
 
