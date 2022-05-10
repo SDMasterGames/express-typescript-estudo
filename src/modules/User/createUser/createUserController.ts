@@ -5,9 +5,9 @@ export class createUserController {
   constructor(private useCase: createUser) {}
 
   async handle(req: Request, res: Response) {
-    const { name } = req.body;
+    const { name,email,avatar_url } = req.body;
     try {
-      const user = await this.useCase.execute({ name });
+      const user = await this.useCase.execute({ name,email,avatar_url});
       return res.status(201).send(user);
     } catch (error: any) {
       console.log(error);
