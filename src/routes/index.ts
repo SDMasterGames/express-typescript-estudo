@@ -1,6 +1,6 @@
 import fs from "fs";
 
-export default function Routes(dirRoutes: string) {
+export default function Routes() {
   const routes = fs
     .readdirSync(__dirname)
     .filter((files) => !files.startsWith("index"))
