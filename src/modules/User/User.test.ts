@@ -12,9 +12,9 @@ const DeleteUser = new deleteUser(UserRepository);
 const ListUser = new listUser(UserRepository);
 const UpdateUser = new updateUser(UserRepository);
 
-describe("Modules - User", () => {
+describe("Modulos - User", () => {
   describe("Create User", () => {
-    it("Criação de usuario com sucesso.", async () => {
+    it("Criação de usuário com sucesso.", async () => {
       await expect(
         CreateUser.execute({
           name: "Dale",
@@ -23,14 +23,14 @@ describe("Modules - User", () => {
       ).resolves.not.toThrow();
     });
 
-    it("Falha na ausencia de nome", async () => {
+    it("Falha na ausência de nome", async () => {
       await expect(
         CreateUser.execute({
           email: "email",
         })
       ).rejects.toThrow();
     });
-    it("Falha na ausencia de email", async () => {
+    it("Falha na ausência de email", async () => {
       await expect(
         CreateUser.execute({
           name: "name",
@@ -40,27 +40,27 @@ describe("Modules - User", () => {
   });
 
   describe("Delete User", () => {
-    it("Deletando um usuario com sucesso.", async () => {
+    it("Deletando um usuário com sucesso.", async () => {
       await expect(DeleteUser.execute("1")).resolves.not.toThrow();
     });
 
-    it("Falha na ausensia de um id.", async () => {
+    it("Falha na ausência de um id.", async () => {
       await expect(DeleteUser.execute("")).rejects.toThrow();
     });
 
-    it("Falha na ausensia de um user.", async () => {
+    it("Falha na ausência de um user.", async () => {
       await expect(DeleteUser.execute("2")).rejects.toThrow();
     });
   });
 
   describe("List User", () => {
-    it("Listando usuarios com sucesso.", async () => {
+    it("Listando usuário com sucesso.", async () => {
       await expect(ListUser.execute()).resolves.not.toThrow();
     });
   });
 
   describe("Update User", () => {
-    it("Atualizando um usuario com sucesso.", async () => {
+    it("Atualizando um usuário com sucesso.", async () => {
       await expect(
         UpdateUser.execute({
           id: "1",
@@ -68,7 +68,7 @@ describe("Modules - User", () => {
         })
       ).resolves.not.toThrow();
     });
-    it("Falha na ausensia de um user.", async () => {
+    it("Falha na ausência de um user.", async () => {
       await expect(
         UpdateUser.execute({
           id: "2",
